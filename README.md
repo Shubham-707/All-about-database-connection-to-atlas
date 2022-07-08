@@ -1,3 +1,4 @@
+#All steps used are described below in detail.
 1. npm init -y
 2. npm i express mongoose dotenv
 3. express for creating server, mongoose for connecting to database, dotenv for hiding confidential info.'
