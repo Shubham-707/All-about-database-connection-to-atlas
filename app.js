@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 require('./conn');
-const User = require('./models');
+// const User = require('./models'); // no use of requiring this in app.js
 const router = require('./routes');
 
 app.get('/', (req, res) => {
