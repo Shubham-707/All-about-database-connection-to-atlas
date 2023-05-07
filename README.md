@@ -1,9 +1,10 @@
 #All steps used are described below in detail.
-1. npm init -y
-2. npm i express mongoose dotenv
-3. express for creating server, mongoose for connecting to database, dotenv for hiding confidential info.'
-4. create app.js > conn.js > models.js > routes.js > .env > .gitignore
-5. create a basic server in app.js
+
+1.  npm init -y
+2.  npm i express mongoose dotenv
+3.  express for creating server, mongoose for connecting to database, dotenv for hiding confidential info.'
+4.  create app.js > conn.js > models.js > routes.js > .env > .gitignore
+5.  create a basic server in app.js
 
         const express = require('express');
         const app = express();
@@ -25,7 +26,7 @@
             console.log(`server is listening at PORT http://localhost:${PORT}`);
         });
 
-6. connect database using mongoose in conn.js
+6.  connect database using mongoose in conn.js
 
         //connecting to database
         const mongoose = require('mongoose');
@@ -39,8 +40,8 @@
         }).catch((e) => {
             console.log('Not connected to database')
         });
-        
-7. create schema in models.js
+
+7.  create schema in models.js
 
         const mongoose = require('mongoose');
 
@@ -53,7 +54,7 @@
         const User = new mongoose.model('User', UserSchema); // User must be Capital and this will be created as a collection in the database.
         module.exports = User;
 
-8. create the routes in routes.js to perform CRUD operations.
+8.  create the routes in routes.js to perform CRUD operations.
 
           const express = require('express');
           const router = new express.Router();
@@ -119,5 +120,14 @@
 
           module.exports = router;
 
-9. require conn.js in app.js for connecting database and using in server
+9.  require conn.js in app.js for connecting database and using in server
 10. require models.js in routes.js to use the schema for the CRUDs
+
+---
+
+Once you have created this file pushed it into your repository, but due to gitignore file the database will also be hidden from the person who will clone the repository.
+Means in conn.js we can see the process.env.DB_CONNECTION, here DB.CONNECTION is named to connect to the mongodb server whose details are in the .env which is ignored by gitignore file.
+So, go to atlas, create a database, get the mongodb link and create one .env file outside all folders, here write DB_CONNECTION: LINK YOU COPIED FROM ATLAS.
+Now this link will connect the repo. to database server, you can use the same link to operate it in compass.
+
+Then, in the terminal write nodemon app.js to run the app.js file to create the connection.
