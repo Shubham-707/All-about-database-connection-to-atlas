@@ -125,9 +125,13 @@
 
 ---
 
-Once you have created this file pushed it into your repository, but due to gitignore file the database will also be hidden from the person who will clone the repository.
-Means in conn.js we can see the process.env.DB_CONNECTION, here DB.CONNECTION is named to connect to the mongodb server whose details are in the .env which is ignored by gitignore file.
-So, go to atlas, create a database, get the mongodb link and create one .env file outside all folders, here write DB_CONNECTION: LINK YOU COPIED FROM ATLAS.
-Now this link will connect the repo. to database server, you can use the same link to operate it in compass.
+Once you have created the repository and pushed all the files and folders, but due to .gitignore file the database connection details will also be hidden from the person who will clone the repository next time in future.
+In conn.js we can see the process.env.DB_CONNECTION, here DB.CONNECTION is named to connect to the mongodb server whose details are in the .env which is ignored by .gitignore file.
 
-Then, in the terminal write nodemon app.js to run the app.js file to create the connection.
+After you clone the repository:
+1. Open terminal and write "npm i" to insatall all pacakges.
+2. Go to your browser and search Atlas, create a database in it and connect the database.
+3. While connecting get the mongodb to VS Code link.
+4. Create one .env file outside all folders, here write DB_CONNECTION: LINK YOU COPIED FROM ATLAS.
+5. Now this link will connect the repo. to database server of Atlas(online), you can use the same link to operate it in compass(local).
+6. Then, in the terminal write nodemon app.js to run the app.js file to create the connection.
